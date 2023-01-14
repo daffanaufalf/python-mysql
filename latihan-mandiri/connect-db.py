@@ -16,9 +16,9 @@ try:
     'database':'db_pegawai'
     }
 
-    connect = mysql.connector.connect(**db_name)
+    connection = mysql.connector.connect(**db_name)
 
-    if connect.is_connected() :
+    if connection.is_connected() :
         print("Koneksi database berhasil dilakukan")
     else:
         print("Koneksi database gagal dilakukan")   

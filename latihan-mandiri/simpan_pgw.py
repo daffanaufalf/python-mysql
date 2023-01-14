@@ -21,14 +21,14 @@ db_name = {
     'database':'db_pegawai'
     }
 
-db_name = mysql.connector.connect(user='root', host='localhost', database='db_pegawai')
-mycursor = db_name.cursor()
+connection = mysql.connector.connect(**db_name)
+mycursor = connection.cursor()
 
 sql = ("INSERT INTO pegawai (NIP, NAMA, JABATAN, DIVISI, GAJI) VALUES (%(NIP)s, %(NAMA)s ,%(JABATAN)s ,%(DIVISI)s ,%(GAJI)s)")
 
 mycursor.execute(sql, dict_pegawai)
-db_name.commit()
+connection.commit()
 print("{} Data berhasil ditambahkan".format(mycursor.rowcount))
 
 mycursor.close()
-db_name.close()
+connection.close()
